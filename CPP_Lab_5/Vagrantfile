@@ -1,0 +1,29 @@
+Vagrant.configure "2" do |config|
+    config.vm.box = "generic/debian11"
+    config.vm.network "forwarded_port", guest: 5001, host: 5001
+    config.vm.network "forwarded_port", guest: 5002, host: 5002
+    config.vm.provider "virtualbox" do |vb|
+        vb.name = "debian"
+    end
+
+    config.vm.provision "file", source: ".", destination: "~/Lab5"
+
+    config.vm.provision "shell", privileged: false, inline: <<~SCRIPT
+        cd /home/vagrant
+        wget https://shorturl.at/dgpAB -O dotnet.tar.gz
+        mkdir dotnet
+        tar zxf dotnet.tar.gz -C dotnet
+        rm dotnet.tar.gz
+        cat > .bashrc << EOL
+        export DOTNET_ROOT=/home/vagrant/dotnet
+        export PATH=\$PATH:/home/vagrant/dotnet
+        EOL
+    SCRIPT
+
+    config.vm.provision "shell", privileged: false, run: "always", inline: <<~SCRIPT
+        cd ~/Lab5/IdentityServer
+        dotnet run --urls http://0.0.0.0:5001 &
+        cd ~/Lab5/WebApp
+        dotnet run --urls http://0.0.0.0:5002 &
+    SCRIPT
+end

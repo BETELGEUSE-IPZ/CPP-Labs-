@@ -1,0 +1,33 @@
+﻿@page "{Number:int}"
+@model IndexModel
+@{
+    ViewData["Title"] = $"Лабораторна робота №{Model.Number}";
+}
+
+
+@if (ViewContext.ModelState.IsValid)
+{
+    <h3 class="text-center">
+        Опис
+    </h3>
+    <partial name=@($"_Description{Model.Number}") />
+    <h3 class="text-center mt-3">
+        Вхідні дані
+    </h3>
+    <form method="post">
+        <textarea class="form-control mt-3"
+                  asp-for=Post.Input
+                  rows="10">
+            @Model.View.Input
+                                    </textarea>
+        <button class="btn btn-primary mt-3" type="submit">Виконати</button>
+    </form>
+    <h3 class="text-center mt-3">
+        Вихідні дані
+    </h3>
+    <span style="white-space: pre-wrap;">@Model.View.Output</span>
+}
+else
+{
+    <div class="card-body text-danger" asp-validation-summary="All"></div>
+}

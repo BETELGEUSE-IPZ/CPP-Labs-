@@ -1,0 +1,57 @@
+﻿@page
+@using Duende.IdentityServer.Extensions
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="text-danger" asp-validation-summary="All"></div>
+<form method="post">
+    <div class="mt-3">
+        <label class="form-label" asp-for=Post.UserName>Ім'я</label>
+        <input class="form-control"
+               asp-for=Post.UserName
+               value=@Model.View.UserName />
+    </div>
+    <div class="mt-3">
+        <label class="form-label" asp-for=Post.FullName>ПІБ</label>
+        <input class="form-control"
+               asp-for=Post.FullName
+               value=@Model.View.FullName />
+    </div>
+    <div class="mt-3">
+        <label class="form-label" asp-for=Post.Password>Пароль</label>
+        <input class="form-control"
+               type="password"
+               asp-for=Post.Password
+               value=@Model.View.Password />
+    </div>
+    <div class="mt-3">
+        <label class="form-label" asp-for=Post.ConfirmationPassword>
+            Підтвердження паролю
+        </label>
+        <input class="form-control"
+               type="password"
+               asp-for=Post.ConfirmationPassword
+               value=@Model.View.ConfirmationPassword />
+    </div>
+    <div class="mt-3">
+        <label class="form-label" asp-for=Post.PhoneNumber>
+            Номер телефону
+        </label>
+        <input class="form-control"
+               asp-for=Post.PhoneNumber
+               value=@Model.View.PhoneNumber />
+    </div>
+    <div class="mt-3">
+        <label class="form-label" asp-for=Post.Email>Електронна пошта</label>
+        <input class="form-control"
+               type="email"
+               asp-for=Post.Email
+               value=@Model.View.Email />
+    </div>
+    <button class="btn btn-primary mt-3" type="submit">
+        Зареєструватись
+    </button>
+</form>
