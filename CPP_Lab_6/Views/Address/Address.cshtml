@@ -1,0 +1,35 @@
+﻿@model lab6.Models.AddressModel
+
+<head>
+    <style>
+        .scrollable-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<h1>UKPAFFile</h1>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Address" asp-action="Address">
+    <div class="form-group container">
+        <h4>Пошук за Id:</h4>
+        <textarea id="inputText" class="form-control" rows="1" type="text" class="form-control" id="pinput" asp-for="IdToSearch"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Пошук</button>
+</form>
+
+<hr />
+
+<div class="scrollable-list">
+    @foreach (var item in Model.Files)
+    {
+        <div>
+            <h3>@item.PafAddressId</h3>
+            <p>@item.AddressLine1, @item.AddressLine2, @item.AddressLine3, @item.Postcode</p>
+            <p>@item.CityTown, @item.Country (@item.CountryCode)</p>
+        </div>
+    }
+</div>

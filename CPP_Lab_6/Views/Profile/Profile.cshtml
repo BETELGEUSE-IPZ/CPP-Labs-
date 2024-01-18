@@ -1,0 +1,20 @@
+﻿@model lab6.Models.ApplicationUser
+
+<h2>Інформація про користувача</h2>
+
+<p><strong>Нікнейм:</strong>             @Model.Nickname</p>
+<p><strong>Прізвище:</strong>            @Model.LastName</p>
+<p><strong>Ім'я:</strong>                @Model.FirstName</p>
+<p><strong>По-батькові:</strong>         @Model.MiddleName</p>
+<p><strong>Телефон:</strong>             @Model.PhoneNumber</p>
+<p><strong>Електронна пошта:</strong>    @Model.Email</p>
+
+<div>
+    <a asp-action="Lab1" asp-controller="Lab1" class="btn btn-primary">ЛР 1</a>
+    <a asp-action="Lab2" asp-controller="Lab2" class="btn btn-primary">ЛР 2</a>
+    <a asp-action="Lab3" asp-controller="Lab3" class="btn btn-primary">ЛР 3</a>
+    <a asp-action="CountryCode" asp-controller="CountryCode" class="btn btn-primary">ISOCountryCode</a>
+    <a asp-action="Address" asp-controller="Address" class="btn btn-primary">UKPAFFile</a>
+    <a asp-action="Customer" asp-controller="Customer" class="btn btn-primary">MDMCustomer</a>
+    <a asp-action="Logout" asp-controller="Auth" class="btn btn-primary">Вихід</a>
+</div>

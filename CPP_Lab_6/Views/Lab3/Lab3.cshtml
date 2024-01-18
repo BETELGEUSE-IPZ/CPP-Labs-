@@ -1,0 +1,26 @@
+﻿@model lab6.Models.LabModel
+
+<h2>Лабораторна робота 3</h2>
+<p>
+    В місцевості відбулося радіоактивне забруднення. Складена карта забрудненості. Вона представляє собою прямокутну таблицю N×M, в клітинках якої записана забрудненість відповідної ділянки. Потрібно написати програму, яка знайде шлях з лівої верхньої клітинки таблиці в праву нижню клітинку з мінімальною загальною дозою радіації. <br /> <br />
+    Вхідні дані<br />
+    У вхідному файлі INPUT.TXT у першому рядку містяться числа N і M, а в наступних N рядках – по M чисел – карта забрудненості місцевості. Числа в рядках розділяються одним пробілом. 1 ≤ N ≤ 30, 1 ≤ M ≤ 30, забрудненість ділянки – ціле число від 0 до 100. <br /><br />
+    Вихідні дані<br />
+    У вихідному файлі OUTPUT.TXT повинно містити одне число – загальну дозу радіації.
+</p>
+
+
+<form method="post" enctype="multipart/form-data" asp-controller="Lab3" asp-action="Lab3">
+    <div class="row">
+        <div class="form-group container mt-2">
+            <h4>Вхідні дані:</h4>
+            <textarea id="inputText" class="form-control" rows="5" type="text" class="form-control" id="pinput" asp-for="Input"></textarea>
+        </div>
+        <div class="container mt-2">
+            <h4>Результат:</h4>
+            <textarea id="outputText" class="form-control" rows="5" readonly>@Model.Output</textarea>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Виконати</button>
+</form>

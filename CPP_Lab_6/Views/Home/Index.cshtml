@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+    <h1>Лабораторна робота №6</h1>
+
+    <p>Створення веб-застосунку ASP.NET Core MVC з авторизацією та аутентифікацією для виконання програмного коду лабораторних 1-3</p>
+    @if(!User.Identity.IsAuthenticated)
+    {
+        <div>
+            <a asp-action="Login" asp-controller="Auth" class="btn btn-primary">Увійти</a>
+        </div>
+    } else
+    {
+        <a asp-action="Profile" asp-controller="Profile" class="btn btn-primary">Профіль</a>
+    }
+</body>
+</html>
